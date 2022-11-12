@@ -6,6 +6,9 @@ const styles = StyleSheet.create({
     },
     switch: {
         flexDirection: 'row'
+    },
+    titulo: {
+        fontSize: '20px'
     }
 })
 

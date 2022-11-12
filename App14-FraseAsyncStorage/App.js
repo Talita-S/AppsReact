@@ -13,7 +13,7 @@ class App extends Component {
   render() {
     return(
       <View style={styles.container}>
-        <Text>Frases</Text>
+        <Text style={styles.titulo}>Frases</Text>
         <View style={styles.switch}>
           <Text>Dia</Text>
           <Switch
@@ -40,7 +40,6 @@ class App extends Component {
             (Steve Jobs)
           </Text>
         </View>
-        
       </View>
     )
   }
