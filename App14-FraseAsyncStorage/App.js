@@ -4,6 +4,8 @@ import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
+import * as Speech from 'expo-speech';
+
 import { styles } from './styles.js';
 
 const App = () => {
@@ -25,6 +27,15 @@ const App = () => {
     randomQuote();
   }, []);
 
+  const speakNow = () => {
+    const options = {
+      pitch: 1.0,
+      rate: 0.8,
+      voice: 'Karen'
+    };
+    Speech.speak(Quote + 'by' + Author, options);
+  };
+
   return(
     <View style={styles.container}> 
 
@@ -41,7 +52,7 @@ const App = () => {
         </TouchableOpacity>
 
         <View style={styles.optionsContainer}>
-          <TouchableOpacity style={styles.optionButton}>
+          <TouchableOpacity style={styles.optionButton} onPress={speakNow}>
             <FontAwesome name='volume-up' size={22} style={styles.optionIcon}/>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionButton}>
