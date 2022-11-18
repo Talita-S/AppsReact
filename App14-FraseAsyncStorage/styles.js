@@ -40,7 +40,13 @@ const styles = StyleSheet.create({
         color: '#000'
     },
     button: {
-        backgroundColor: '#4c94b5',
+        backgroundColor: 'rgba(76, 148, 181, 1)',
+        padding: '20px',
+        borderRadius: '30px',
+        marginVertical: '20px'
+    },
+    buttonLoading: {
+        backgroundColor: 'rgba(76, 148, 181, 0.7)',
         padding: '20px',
         borderRadius: '30px',
         marginVertical: '20px'
