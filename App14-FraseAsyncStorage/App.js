@@ -9,8 +9,9 @@ import { styles } from './styles.js';
 const App = () => {
     return(
       <View style={styles.container}>
-        <Text>Citação</Text>
-        <FontAwesome5 name='quote-left'/>
+        <View style={styles.card}>
+
+        </View>
       </View>
     )
 }
