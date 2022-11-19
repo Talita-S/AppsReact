@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { View, Text, TouchableOpacity, StatusBar } from 'react-native';
+import { View, Text, TouchableOpacity, StatusBar, Linking } from 'react-native';
 
 import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
@@ -49,6 +49,11 @@ const App = () => {
     })
   };
 
+  const tweetNow = () => {
+    const url = "https://twitter.com/intent/tweet?text=" + Quote;
+    Linking.openURL(url);
+  };
+
   return(
     <View style={styles.container}> 
 
@@ -71,7 +76,7 @@ const App = () => {
           <TouchableOpacity style={styles.optionButton} onPress={copyToClipboard}>
             <FontAwesome5 name='copy' size={22} style={styles.optionIcon}/>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.optionButton}>
+          <TouchableOpacity style={styles.optionButton} onPress={tweetNow}>
             <FontAwesome name='twitter' size={22} style={styles.optionIcon}/>
           </TouchableOpacity>
         </View>
