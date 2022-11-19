@@ -5,6 +5,8 @@ import FontAwesome5 from 'react-native-vector-icons/FontAwesome5';
 import FontAwesome from 'react-native-vector-icons/FontAwesome';
 
 import * as Speech from 'expo-speech';
+import * as Clipboard from 'expo-clipboard'
+import Swal from 'sweetalert2';
 
 import { styles } from './styles.js';
 
@@ -37,6 +39,16 @@ const App = () => {
     Speech.speak(Quote + 'by' + Author, options);
   };
 
+  const copyToClipboard = async () => {
+    await Clipboard.setStringAsync(Quote);
+    Swal.fire({
+      title: 'Quote copied!',
+      icon: 'success',
+      confirmButtonText: 'Ok',
+      confirmButtonColor: '#4c94b5'
+    })
+  };
+
   return(
     <View style={styles.container}> 
 
@@ -56,7 +68,7 @@ const App = () => {
           <TouchableOpacity style={ styles.optionButton} onPress={speakNow}>
             <FontAwesome name='volume-up' size={22} style={styles.optionIcon}/>
           </TouchableOpacity>
-          <TouchableOpacity style={styles.optionButton}>
+          <TouchableOpacity style={styles.optionButton} onPress={copyToClipboard}>
             <FontAwesome5 name='copy' size={22} style={styles.optionIcon}/>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionButton}>
