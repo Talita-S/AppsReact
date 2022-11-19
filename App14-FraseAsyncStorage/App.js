@@ -28,9 +28,10 @@ const App = () => {
   }, []);
 
   const speakNow = () => {
+    Speech.stop();
     const options = {
       pitch: 1.0,
-      rate: 0.8,
+      rate: 0.9,
       voice: 'Karen'
     };
     Speech.speak(Quote + 'by' + Author, options);
@@ -52,7 +53,7 @@ const App = () => {
         </TouchableOpacity>
 
         <View style={styles.optionsContainer}>
-          <TouchableOpacity style={styles.optionButton} onPress={speakNow}>
+          <TouchableOpacity style={ styles.optionButton} onPress={speakNow}>
             <FontAwesome name='volume-up' size={22} style={styles.optionIcon}/>
           </TouchableOpacity>
           <TouchableOpacity style={styles.optionButton}>
